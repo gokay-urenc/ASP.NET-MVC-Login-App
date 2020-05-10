@@ -1,0 +1,39 @@
+﻿@model List<Employee>
+
+<h2>CalisanlariGetir</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading"> Çalışanlar </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Çalışan No</th>
+                    <th>Adı</th>
+                    <th>Soyadı</th>
+                    <th>Ünvanı</th>
+                    <th>Yetkilisi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.EmployeeID</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Title</td>
+                        @if (item.Employee1 != null)
+                        {
+                            <td>@item.Employee1.FirstName @item.Employee1.LastName</td>
+                        }
+                        else
+                        {
+                            <td>Yetkilisi Yok</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
